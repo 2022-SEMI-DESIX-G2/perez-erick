@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Perez-Erick_Laboratorio_2</title>
+    </head>
+    <body>
+        <!-- Parte 1: respuesta a la pregunta -->
+            <p>¿Qué es Javascript y en qué se asemeja a Java?</p>
+            <p>En total funcionan diferente, pero se asemejan por tener Java en el nombre xd</p>
+        
+            <!-- Parte 2: Operaciones matematicas -->
+            <input type="number" id="leer1" onkeyup="imprimir()"> 
+            <input type="number" id="leer2" onkeyup="imprimir()">
+                <!-- Impresión de resultados al momento-->
+            <div id="Suma"></div>
+            <div id="Resta"></div>
+            <div id="Multiplica"></div>
+            <div id="Divide"></div>
+
+            <script>
+                function imprimir() {
+                var sum = parseFloat(document.getElementById("leer1").value)+parseFloat(document.getElementById("leer2").value);
+                document.getElementById("Suma").innerHTML="Suma: "+sum;
+                    console.log ("Suma "+sum);
+                var rest = parseFloat(document.getElementById("leer1").value)-parseFloat(document.getElementById("leer2").value);
+                document.getElementById("Resta").innerHTML="Resta "+rest;
+                    console.log ("Resta "+rest);
+                var mult = parseFloat(document.getElementById("leer1").value)*parseFloat(document.getElementById("leer2").value);
+                document.getElementById("Multiplica").innerHTML="Multiplicación "+mult;
+                    console.log ("Multiplicación "+mult);
+                var divi = parseFloat(document.getElementById("leer1").value)/parseFloat(document.getElementById("leer2").value);
+                document.getElementById("Divide").innerHTML="División "+divi;
+                    console.log ("División "+divi);
+            } 
+            </script>
+        <!-- Parte 3: concatenacion let -->
+        <br>
+            <div><button onclick="concatenar()">Concatenacion Let</button>
+            <p id="alet"></p>
+        </div>
+        <script>
+            let var1='Pango', var2='Lin';
+            function concatenar() {
+            var resp= var1+var2;
+			document.getElementById("alet").innerHTML = resp;
+    		console.log (resp);
+            } 
+        </script>
+        <!-- Parte 4: concatenacion const -->
+            <br>
+            <div><button onclick="tipar()">Tipo de Dato</button>
+            <p id="aconst"></p>
+            <p id="bconst"></p>
+            </div>
+            <script>
+                const a=007;
+                const b='brrr';
+            function tipar(){
+                document.getElementById("aconst").innerHTML = typeof a;
+                document.getElementById("bconst").innerHTML = typeof b;
+                }
+            </script>
+        <!-- Parte 5: Objeto -->
+            <script>
+            var myObj = new Object(),
+                num = Math.random(),
+                str = 'myString',
+                bul = false;
+                obj = new Object();
+            </script>
+    </body>
+</html>
