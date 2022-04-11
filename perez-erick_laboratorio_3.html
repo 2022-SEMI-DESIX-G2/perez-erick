@@ -1,0 +1,94 @@
+<!DOCTYPE Html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Perez-Erick_Laboratorio_3</title>
+    </head>
+    <body>
+        <!-- Parte 1: numeros palindromos? o capicua? -->
+        <p>1- F</p> 
+        <!-- Parte 2: Cantidad de caracteres -->
+        <div>
+            <p>2- Introduce un texto para contar las letras</p>
+            <input type="text" id="text">
+            <button onclick="calcular('text')">resultado</button>
+            <button onclick="borrar('text')">Limpiar</button>
+        </div>
+        <p id="resultado2"></p>
+        <script>
+            function calcular(text) {
+                var mensaje = document.getElementById(text).value;
+                var cadena = mensaje.split('');
+                var contador = {};
+                cadena.forEach(function(valor) {
+                if (contador[valor] === undefined) {contador[valor] = 1} else {contador[valor] += 1}
+                    });
+                     document.getElementById('resultado2').innerHTML = '<ul>';
+                    for (var clave in contador) {
+                    document.getElementById('resultado2').innerHTML += '<li>' + clave + ':' + contador[clave] + '</li>';
+                }
+                document.getElementById('resultado2').innerHTML += '<ul>';
+            }
+            function borrar(text) {
+                document.getElementById(text).value = '';
+                document.getElementById('resultado2').innerHTML = '';
+            }
+        </script>
+        <!-- Parte 3: verificar año-->
+        <div>
+            <p>3- Verificar Año Bisiesto</p>
+            Indique un año: <input type="number" id="anno">
+            = <output id="res3"></output>
+        </div>
+        <div>
+            <p></p>
+            <button onclick="validanio()">Imprimir</button>
+        </div>
+            <script>
+            function validanio(){
+                let year=parseInt(document.getElementById("anno").value);
+                const bisies = (year) => {
+                return (year % 400 === 0) ? true : 
+                (year % 100 === 0) ? false : 
+                year % 4 === 0;
+                };
+                document.getElementById("res3").innerHTML = bisies(year);
+                console.log(bisies(year))
+            }
+        </script>
+
+        <!-- Parte 4: Suma de # primos -->
+        <div>
+            <p>4- Sumar N cantidad de numeros Primos</p>
+            Indique un numero: <input type="number" id="leer">
+            <button onclick="sumar()">Imprimir</button>
+            <p id="resp1"></p>
+            = <output id="resp2"></output>    
+        </div>
+        <script>
+            function sumar(){
+                let num = parseInt(document.getElementById("leer").value);
+                let primos = [1];
+                let divisible = false;
+                for(let i = 2; i <= num; i++){
+                    for(let j = 2; j < i; j++){
+                        if(i % j === 0){
+                            divisible = true;
+                            break;
+                        }
+                        divisible = false;
+                    }
+                        if(!divisible){
+                            primos.push(i)
+                        }
+                }
+                let suma = primos.reduce((acc, el) => acc + el, 0)
+                document.getElementById("resp1").innerHTML = primos;
+                document.getElementById("resp2").innerHTML = suma;
+                console.log(primos)
+                console.log(suma)
+            }
+        </script>
+
+   </body>
+   </html>
